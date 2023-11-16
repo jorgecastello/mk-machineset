@@ -23,12 +23,16 @@ spec:
     spec:
       taints:
       - effect: NoSchedule
-        key: node-function
-        value: infra
+        key: node-role.kubernetes.io/infra
+        value: reserved
+      - effect: NoExecute
+        key: node-role.kubernetes.io/infra
+        value: reserved
       metadata:
         creationTimestamp: null
         labels:
           node-role.kubernetes.io/infra: ""
+          node-role.kubernetes.io/worker: ""
       providerSpec:
         value:
           apiVersion: vsphereprovider.openshift.io/v1beta1
